@@ -1,0 +1,4 @@
+# rar and compiled code
+*.o
+*.rar
+*.vcproj*
