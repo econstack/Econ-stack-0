@@ -1,4 +1,4 @@
-# Econstack (v1) 
+# Econstack (v0) 
 
 
 ## Context
@@ -24,7 +24,8 @@ Solving the model essentially consists of finding a solution to a system of equa
 ### Estimation 
 Estimation of the model using SMM (simulated method of moments) means choosing *N(p)* parameters to best fit *N(m)* moments of data. This means solving a optimization problem with *N(p)* decision variables. I exploit some mathematical properties of the models so that I can deploy a variant of Newton's Method in some appropriately constructed metric space. This then requires solving for a Hessian of dimension *N(p)* at each iteration of the optimization algorithm which means solving the model *3N(p)^2* times. 
 
- 
+### Local Continuity
+**Fmin** and **calibration** both allow the user to exploit a local continuity by allowing for an initial guess. In most applications, it is almost certainly necessary to start with a solution *x(p0)* to a known model parameterization *p0*. For an arbitrary parameterization *p*, starting from arbitrary init guess for solution *x*, the algo may not converge to solution *x(p)*. In practice, this is the case most of the time without a "good" init guess. For this reason, we start from a known solution to a known parameterization. We limit the size of the next step in the outer Newton method for the estimation so that *p(n+1)* is not too far from *p(n)*
 
 
 ## License
